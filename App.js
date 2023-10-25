@@ -14,7 +14,7 @@ const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
 
 function ExpensesOverview(){
-  return <BottomTabs.Navigator screenOptions={{
+  return <BottomTabs.Navigator screenOptions={() => ({ 
     headerStyle: { backgroundColor: GlobalStyles.colors.primary500},
     headerTintColor: 'white',
     tabBarStyle: { backgroundColor: GlobalStyles.colors.primary500},
@@ -22,7 +22,7 @@ function ExpensesOverview(){
     headerRight: ({ tintColor}) => (
     <IconButton icon="add" size={24} color={tintColor} onPress={() => {}} />
     ),
-  }}>
+  })}>
     <BottomTabs.Screen name="RecentExpenses" component={RecentExpenses} options={{
       title: 'Recent Expenses',
       tabBarLabel: 'Recent',
