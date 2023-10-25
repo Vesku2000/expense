@@ -16,17 +16,23 @@ function ManageExpenses( {route, navigation } ){
     }, [navigation, isEditing]);
 
     function deleteExpensesHandeler(){
-
+        navigation.goBack();
     }
 
     function CancelHandler(){
+        navigation.goBack();
+    }
 
+    function COnfirmHandler(){
+        navigation.goBack();
     }
 
     return <View style={styles.container}>
         <View style={styles.buttons}>
             <Button style={styles.button} mode="flat" onPress={CancelHandler}>Cancel</Button>
-            <Button style={styles.button}>{isEditing ? 'Update' : 'Add'}</Button>
+            <Button style={styles.button} onPress={COnfirmHandler}>
+                {isEditing ? 'Update' : 'Add'}
+                </Button>
         </View>
         {isEditing && <View style={styles.deleteContainer}>
             <IconButton icon="trash" color={GlobalStyles.colors.error500} size={36} onPress={deleteExpensesHandeler}/>
